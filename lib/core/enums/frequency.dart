@@ -1,0 +1,4 @@
+enum Frequency {
+  weakly,
+  monthly,
+}
