@@ -6,6 +6,9 @@ import 'package:coffee_biz/features/main/shop/shop_screen.dart';
 import 'package:coffee_biz/features/main/statistics/statistics_screen.dart';
 import 'package:flutter/material.dart';
 
+String _campaign = '';
+String _campaignId = '';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 

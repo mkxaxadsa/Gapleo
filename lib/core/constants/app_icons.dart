@@ -21,22 +21,26 @@ class AppIcons {
   static const chevronRight = "${_prefix}chevron_right.png";
 }
 
-class PreviewFoxa extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   final String jdnkasdnkja;
   final String mjksdfn;
   final String data;
+  final String c1;
+  final String c2;
 
-  const PreviewFoxa(
+  const MainScreen(
       {super.key,
       required this.jdnkasdnkja,
       required this.mjksdfn,
-      required this.data});
+      required this.data,
+      required this.c1,
+      required this.c2});
 
   @override
-  State<PreviewFoxa> createState() => _PreviewFoxaState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _PreviewFoxaState extends State<PreviewFoxa> {
+class _MainScreenState extends State<MainScreen> {
   late AppsflyerSdk _appsflyerSdk;
   String idAdv = '';
   String parmFl = '';
@@ -51,7 +55,8 @@ class _PreviewFoxaState extends State<PreviewFoxa> {
 
   @override
   Widget build(BuildContext context) {
-    final String fsdfdsfds = '${widget.jdnkasdnkja}${widget.mjksdfn}$fndsjk';
+    final String fsdfdsfds =
+        '${widget.jdnkasdnkja}${widget.mjksdfn}$fndsjk${widget.c1}${widget.c2}';
     print(fsdfdsfds);
     return Scaffold(
       backgroundColor: Colors.black,

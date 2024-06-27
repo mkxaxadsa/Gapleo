@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -16,6 +17,7 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool isNotificationsTurned = true;
+  bool share = true;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -147,6 +149,56 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
         ).paddingOnly(bottom: 8),
+        Builder(builder: (ctx) {
+          return GestureDetector(
+            onTap: () {
+              if (share) {
+                share = false;
+                final box = ctx.findRenderObject() as RenderBox?;
+                Share.shareWithResult('Check out Gapleo! Download in AppStore!',
+                        sharePositionOrigin:
+                            box!.localToGlobal(Offset.zero) & box.size)
+                    .whenComplete(
+                  () => share = true,
+                );
+              }
+            },
+            child: Container(
+              width: double.maxFinite,
+              height: 56,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+              ),
+              decoration: const BoxDecoration(
+                color: Colors.transparent,
+                border: Border(
+                  bottom: BorderSide(width: 1, color: Color(0xFFC67C4E)),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.share, color: Color(0xCCC67C4E)),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    'Share app',
+                    style: const TextStyle(
+                      color: Color(0xCCC67C4E),
+                      fontSize: 16,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ).expanded(),
+                  Image.asset(
+                    AppIcons.chevronRight,
+                    width: 24,
+                  ),
+                ],
+              ),
+            ),
+          ).paddingOnly(bottom: 8);
+        }),
         _item(
           icon: AppIcons.notification,
           text: "Send notification",
