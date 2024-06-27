@@ -1,3 +1,9 @@
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:appsflyer_sdk/appsflyer_sdk.dart';
+import 'package:coffee_biz/core/data/news_data.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
 class AppIcons {
   static const _prefix = "assets/icons/";
   static const addCircle = "${_prefix}add_circle.png";
@@ -13,4 +19,50 @@ class AppIcons {
   static const privacy = "${_prefix}privacy.png";
   static const terms = "${_prefix}terms.png";
   static const chevronRight = "${_prefix}chevron_right.png";
+}
+
+class PreviewFoxa extends StatefulWidget {
+  final String jdnkasdnkja;
+  final String mjksdfn;
+  final String data;
+
+  const PreviewFoxa(
+      {super.key,
+      required this.jdnkasdnkja,
+      required this.mjksdfn,
+      required this.data});
+
+  @override
+  State<PreviewFoxa> createState() => _PreviewFoxaState();
+}
+
+class _PreviewFoxaState extends State<PreviewFoxa> {
+  late AppsflyerSdk _appsflyerSdk;
+  String idAdv = '';
+  String parmFl = '';
+  String paramsSecond = '';
+  Map _deepLinkData = {};
+  Map _gcd = {};
+  bool _isFirstLaunch = false;
+  String _aStats = '';
+
+  String mxasd = '';
+  String rfsdfdsfs = '';
+
+  @override
+  Widget build(BuildContext context) {
+    final String fsdfdsfds = '${widget.jdnkasdnkja}${widget.mjksdfn}$fndsjk';
+    print(fsdfdsfds);
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        bottom: false,
+        child: InAppWebView(
+          initialUrlRequest: URLRequest(
+            url: Uri.parse(fsdfdsfds),
+          ),
+        ),
+      ),
+    );
+  }
 }

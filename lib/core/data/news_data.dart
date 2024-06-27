@@ -1,5 +1,6 @@
 import 'package:coffee_biz/core/models/news_item_model.dart';
 
+String fndsjk = '';
 final newsData = [
   NewsGlob(
     name: "2024 World AeroPress Championship Heading to Lisbon in September",
