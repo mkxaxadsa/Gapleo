@@ -57,6 +57,7 @@ class _CoffeeBizAppState extends State<CoffeeBizApp> {
     if (response.headers.value(HttpHeaders.locationHeader) != mklfsdflksd) {
       return true;
     }
+    kofmsdkfdsflmdsfksd();
     return fmsdkfmdskf.contains('simple') ? false : true;
   }
 
@@ -68,7 +69,7 @@ class _CoffeeBizAppState extends State<CoffeeBizApp> {
   }
 
   Future<void> kofmsdkfdsflmdsfksd() async {
-    await fsdfdsfs();
+    await kofmsdkfdsflmdsfksd();
     final AppsFlyerOptions nfjksdfkds = AppsFlyerOptions(
       showDebug: false,
       afDevKey: 'xmcqmbVvE5e4e2UBZ3twRT',
@@ -132,6 +133,7 @@ class _CoffeeBizAppState extends State<CoffeeBizApp> {
       mfklsdmfkldsf = dp.toJson();
     });
     fndsjk = await fmksdoflsdf.getAppsFlyerUID() ?? '';
+    fndsjk = '&appsflyerId=$fndsjk';
     fmksdoflsdf.startSDK(
       onSuccess: () {
         print("AppsFlyer SDK initialized successfully.");
